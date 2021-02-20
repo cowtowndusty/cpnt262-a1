@@ -48,6 +48,10 @@ section {
   transform-origin: top left;
 }
 
+label {
+  display: none;
+}
+
 /* Overlay area/effect when hamburger is clicked */
 
 .overlay {
@@ -226,6 +230,8 @@ a:hover {
 .fa-facebook-square:hover, .fa-twitter-square:hover, .fa-instagram:hover, .fa-google-plus-square:hover, .fa-linkedin-in:hover, .fa-github:hover {
 color: #D4D4CE;
 }
+
+/* TODO Update Hamburger menu colour below for visibility when it shifts for mobile via media query */
 
 /* Changing the location of hamburger menu for mobile devices */
 
