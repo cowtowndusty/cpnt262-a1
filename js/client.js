@@ -1,3 +1,4 @@
+'use strict';
 // Create a constant for the nav element to become visible when EventListener is triggered.
 const nav = document.querySelector('.nav');
 // Create a constant for the burger element to become visible when EventListener is triggered.

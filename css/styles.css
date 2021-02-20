@@ -50,7 +50,7 @@ section {
 
 /* Overlay area/effect when hamburger is clicked */
 
-#overlay {
+.overlay {
   margin: 0;
   padding: 0;
   display: flex;
@@ -61,42 +61,88 @@ section {
   transition: 0.3s linear;
 }
 
-#overlay.active {
+.overlay.active {
   width: 100%;
   height: 100vh;
   background-color: #111d2a8a;
 }
 
-/* Hamburger menu */
-
-.burger {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  border-radius: .5rem;
-  background: #111D2A;
-  padding: 1rem;
-  z-index: 1000;
-  cursor: pointer;
-  transition: 0.3s linear;
-  box-shadow: 2px 2px 5px #111D2A;
-}
-
-.burger:hover {
-  background-color: #279EA7;
-}
-
 /* Hamburger icon */
 
-.b-line {
-  width: 1.375rem;
-  margin-bottom: 0.315rem;
-  height: 0.125rem;
-  background-color: #D4D4CE;
+#h-menu {
+  z-index: 1000;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 3.125rem;
+  height: 2.75rem;
+  background: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  overflow: hidden;
 }
-
-.b-line:last-child {
-  margin-bottom: 0;
+#h-menu:focus:not(:focus-visible) {
+  outline: none;
+}
+#h-menu::before,
+#h-menu::after {
+  content: '';
+}
+#h-menu::before,
+#h-menu::after,
+#h-menu span {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  border-radius: 4px;
+}
+#h-menu::before {
+  top: 3px;
+  left: 8px;
+  transform-origin: 0 0;
+  transform: rotate(45deg) scaleX(0);
+  transition: .2s;
+}
+#h-menu::after {
+  top: 3px;
+  right: 9px;
+  transform-origin: 100% 0;
+  transform: rotate(-45deg) scaleX(0);
+  transition: .2s .2s;
+}
+#h-menu span:nth-of-type(-n+3) {
+  left: 0;
+  transition: .2s .4s;
+}
+#h-menu span:nth-of-type(1) {
+  top: 0;
+}
+#h-menu span:nth-of-type(2) {
+  top: 20px;
+}
+#h-menu span:nth-of-type(3) {
+  bottom: 0;
+}
+#h-menu.active::before {
+  transform: rotate(45deg) scaleX(1);
+  transition-delay: .8s;
+}
+#h-menu.active::after {
+  transform: rotate(-45deg) scaleX(1);
+  transition-delay: 1s;
+}
+#h-menu.active span:nth-of-type(-n+3) {
+  transform: translateX(20px);
+  transition: .4s cubic-bezier(.68, -2, .32, 1.6);
+  opacity: 0;
+}
+#h-menu.active span:nth-of-type(2) {
+  transition-delay: .1s;
+}
+#h-menu.active span:nth-of-type(3) {
+  transition-delay: .3s;
 }
 
 /* Navigation menu */
@@ -183,9 +229,9 @@ color: #D4D4CE;
 
 /* Changing the location of hamburger menu for mobile devices */
 
-@media screen and (max-width: 37.5rem) {
-  #burger {
+/* @media screen and (max-width: 37.5rem) {
+  #h-menu {
     top: 90%;
     right: 12%;
   }
-}
+} */
